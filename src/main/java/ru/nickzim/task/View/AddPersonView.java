@@ -2,6 +2,7 @@ package ru.nickzim.task.View;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
@@ -28,11 +29,15 @@ public class AddPersonView extends VerticalLayout {
 
         HorizontalLayout buttons = new HorizontalLayout();
         Button add = new Button("Add", e -> {
-            service.create(new Person(firstnameField.getValue(),
-                                      lastnameField.getValue(),
-                                      countryField.getValue(),
-                                      ageField.getValue()));
-            UI.getCurrent().navigate("");
+            if (firstnameField.isEmpty() || lastnameField.isEmpty() || countryField.isEmpty() || ageField.isEmpty()){
+                Notification.show("Enter the complete data");
+            } else {
+                service.create(new Person(firstnameField.getValue(),
+                        lastnameField.getValue(),
+                        countryField.getValue(),
+                        ageField.getValue()));
+                UI.getCurrent().navigate("");
+            }
         });
         Button cancel = new Button("Cancel", e ->{
             UI.getCurrent().navigate("");
