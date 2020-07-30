@@ -4,6 +4,8 @@ A test web application to work with the database of persons.
 
 ## Run
 
+Run `mvn clean install`.
+
 Run `mvn spring-boot:run`.
 
 ## Work with database
