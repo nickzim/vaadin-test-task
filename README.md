@@ -13,3 +13,7 @@ Run `mvn spring-boot:run`.
 * Remove `DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class` classes from those excluded in @SpringBootApplication annotation in the `TaskApplication.java` file.
 * Change repository in `PersonsServiceImpl`.
 * Set database configuration in `application.properties`.
+
+## Free hosting (Heroku)
+
+https://vaadin-test-task.herokuapp.com/
